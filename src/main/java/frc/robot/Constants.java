@@ -41,11 +41,11 @@ public final class Constants {
 
   public static final class AutoConstants {
 
-    public static final double kAutoDriveFwdSpeed = 2.0;
+    public static final double kAutoDriveFwdSpeed = 1.5;
     public static final double kAutoDriveFwdDistance = 1.2;
     public static final double kAutoDriveFwdDistance2 = 4.0;
 
-    public static final double kAutoDriveBkwdSpeed = -0.1;
+    public static final double kAutoDriveBkwdSpeed = -0.8;
     public static final double kAutoDriveBkwdDistance = -6.0;
 
     public static final double kTelescopicTime = 2.0;

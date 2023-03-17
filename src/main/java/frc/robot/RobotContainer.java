@@ -76,6 +76,12 @@ public class RobotContainer {
       new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance),
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance2)
       
+
+    /* new ParallelCommandGroup ( //
+        new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance), new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2) //
+    )
+    */
+
     );//
   }
 }
