@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.ArmPivotSubsystem;
@@ -9,6 +10,7 @@ public class AutoPivot extends CommandBase {
 
   private final ArmPivotSubsystem armPivotSubsystem;
   private final PIDController pidController;
+  private final Joystick joyArm = new Joystick(Constants.OIConstants.kArmJoystickPort);
 
   public AutoPivot(ArmPivotSubsystem armPivotSubsystem, double setpoint) {
     this.armPivotSubsystem = armPivotSubsystem;
@@ -28,6 +30,12 @@ public class AutoPivot extends CommandBase {
   public void execute() {
     double speed = pidController.calculate(armPivotSubsystem.getEncoderMeters());
     armPivotSubsystem.setMotor(speed);
+    System.out.print("Arm position = " );
+    System.out.println(armPivotSubsystem.getEncoderMeters());
+    System.out.print("speed = " );
+    System.out.println(speed);
+    System.out.print("joyArm.getRawAxis = ");
+    System.out.println(Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
   }
 
   // Called once the command ends or is interrupted.
@@ -39,6 +47,11 @@ public class AutoPivot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
-  }
+    if (Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)) > 0.1) {
+      System.out.println("AutoPivot complete");
+      return true;
+    } else {
+      return false;
+    }
+ }
 }

@@ -20,6 +20,7 @@ public class AutoDriveFwdCmd extends CommandBase {
   @Override
   public void initialize() {
     encoderSetpoint = driveSubsystem.getEncoderMeters() + distance;
+    System.out.print("AutoDriveFwd started");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -32,7 +33,9 @@ public class AutoDriveFwdCmd extends CommandBase {
     driveSubsystem.setMotors(outputSpeed, outputSpeed);
 
     System.out.print("error = ");
-    System.out.println();
+    System.out.println(error);
+    System.out.print("outputSpeed = ");
+    System.out.println(outputSpeed);
   }
 
   // Called once the command ends or is interrupted.
@@ -44,7 +47,7 @@ public class AutoDriveFwdCmd extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (driveSubsystem.getEncoderMeters() > encoderSetpoint)
+    if (driveSubsystem.getEncoderMeters() > Math.abs(encoderSetpoint - 0.1))
       return true;
     else 
       return false;

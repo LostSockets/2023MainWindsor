@@ -69,9 +69,9 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
 
     return new SequentialCommandGroup(
-      new AutoTelescopicExtend(armTelescopicSubsystem, 1),
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
       new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2),
+      new AutoTelescopicExtend(armTelescopicSubsystem, 1),
       new AutoTelescopicExtend(armTelescopicSubsystem, -1),
       new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance),
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance2)

@@ -41,12 +41,12 @@ public final class Constants {
 
   public static final class AutoConstants {
 
-    public static final double kAutoDriveFwdSpeed = 0.3;
-    public static final double kAutoDriveFwdDistance = 1.0;
-    public static final double kAutoDriveFwdDistance2 = 12.0;
+    public static final double kAutoDriveFwdSpeed = 2.0;
+    public static final double kAutoDriveFwdDistance = 1.2;
+    public static final double kAutoDriveFwdDistance2 = 4.0;
 
-    public static final double kAutoDriveBkwdSpeed = -0.2;
-    public static final double kAutoDriveBkwdDistance = -15.0;
+    public static final double kAutoDriveBkwdSpeed = -0.1;
+    public static final double kAutoDriveBkwdDistance = -6.0;
 
     public static final double kTelescopicTime = 2.0;
   }
@@ -69,7 +69,7 @@ public final class Constants {
     public static final double kI = 0;
     public static final double kD = 0;
 
-    public static final double kPButton = 0.09; //0.09;
+    public static final double kPButton = 0.2; //0.09;
     public static final double kIButton = 0;
     public static final double kDButton = 0;
   
@@ -78,7 +78,7 @@ public final class Constants {
     public static final double kminArmPivotEncoderHeight = 7.5; //-0.1;
     public static final double kArmPivotPos0 = 7.0; //-0.4;
     public static final double kArmPivotPos1 = 5.0; //-3.0;
-    public static final double kArmPivotPos2 = 3.0; //-6.0;
+    public static final double kArmPivotPos2 = 1.0; //-6.0;
     public static final double kArmPivotPos3 = -1.0; //-8.5;
 
   }
@@ -89,7 +89,7 @@ public final class Constants {
     public static final int kArmJoystickPort = 1;
 
     public static final int kArcadeDriveSpeedAxis = 1;
-    public static final int kArcadeDriveTurnAxis = 3;
+    public static final int kArcadeDriveTurnAxis = 4;
     public static final int kArcadeDriveReverse = 3;
     public static final int kArcadeDriveTurbo = 6;
     public static final int kArcadeDriveMellow = 5;

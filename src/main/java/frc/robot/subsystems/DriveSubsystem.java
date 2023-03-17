@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-//import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cameraserver.CameraServer;
 
 public class DriveSubsystem extends SubsystemBase {
 
@@ -28,7 +28,9 @@ public class DriveSubsystem extends SubsystemBase {
   }
   
   /** Creates a new DriveSubsystem. */
-  public DriveSubsystem() {}
+  public DriveSubsystem() {
+    CameraServer.startAutomaticCapture();
+  }
 
   /**
    * Example command factory method.
@@ -58,7 +60,6 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     SmartDashboard.putNumber("DriveEncoder Value",  getEncoderMeters());
-    //CameraServer.startAutomaticCapture();
   }
 
   public void setMotors(double leftSpeed, double rightSpeed) {

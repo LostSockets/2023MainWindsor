@@ -36,6 +36,8 @@ public class AutoTelescopicExtend extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     armTelescopicSubsystem.setMotor(0);
+    System.out.print("Time");
+    System.out.print(Timer.getFPGATimestamp() - startTime);
   }
 
   // Returns true when the command should end.
