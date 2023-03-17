@@ -65,7 +65,7 @@ public final class Constants {
     public static final double kArmPivotSpeedPercentage = 0.7;
     public static final double kArmPivotSpeedPecentageThrottled = 0.15;
  
-    public static final double kP = 0.08; //0.08; // PID numbers need to be figured out still!!!!!!!!
+    public static final double kP = 0.1; //0.08; // PID numbers need to be figured out still!!!!!!!!
     public static final double kI = 0;
     public static final double kD = 0;
 
