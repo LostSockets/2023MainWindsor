@@ -73,11 +73,16 @@ public class RobotContainer {
       new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2),
       new AutoTelescopicExtend(armTelescopicSubsystem, 1),
       new AutoTelescopicExtend(armTelescopicSubsystem, -1),
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance),
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance2)
-      
+      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)      
 
-    /* new ParallelCommandGroup ( //
+
+    /* Autonomous 2: bump cube back, drive forward 
+      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveBkwdDistance),
+      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveFwdDistance)
+     */
+
+    /*  Use this later!
+    new ParallelCommandGroup ( //
         new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance), new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2) //
     )
     */

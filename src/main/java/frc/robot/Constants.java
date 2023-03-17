@@ -45,8 +45,11 @@ public final class Constants {
     public static final double kAutoDriveFwdDistance = 1.2;
     public static final double kAutoDriveFwdDistance2 = 4.0;
 
+    public static final double kAuto2DriveFwdDistance = 12.0;
+    public static final double kAuto2DriveBkwdDistance = 1.2;
+
     public static final double kAutoDriveBkwdSpeed = -0.8;
-    public static final double kAutoDriveBkwdDistance = -6.0;
+    public static final double kAutoDriveBkwdDistance = -15.0;
 
     public static final double kTelescopicTime = 2.0;
   }
