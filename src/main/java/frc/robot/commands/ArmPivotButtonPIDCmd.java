@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.ArmPivotSubsystem;
@@ -9,12 +8,13 @@ import frc.robot.subsystems.ArmPivotSubsystem;
 public class ArmPivotButtonPIDCmd extends CommandBase {
     private final ArmPivotSubsystem armPivotSubsystem;
     private final PIDController pidController;
-    private final Joystick joyArm = new Joystick(Constants.OIConstants.kArmJoystickPort);
-  
+    private final double setpoint;
+
     public ArmPivotButtonPIDCmd(ArmPivotSubsystem armPivotSubsystem, double setpoint) {
         this.armPivotSubsystem = armPivotSubsystem;
         this.pidController = new PIDController(Constants.ArmPivotConstants.kPButton,Constants.ArmPivotConstants.kIButton,Constants.ArmPivotConstants.kDButton);
         pidController.setSetpoint(setpoint);
+        this.setpoint = setpoint;
         addRequirements(armPivotSubsystem);
     }
 
@@ -30,7 +30,7 @@ public class ArmPivotButtonPIDCmd extends CommandBase {
  
     double speed = pidController.calculate(armPivotSubsystem.getEncoderMeters());
     armPivotSubsystem.setMotor(speed);
-    System.out.println("speed = " + speed);
+    System.out.println("Arm speed = " + speed);
 }
 
   // Called once the command ends or is interrupted.
@@ -43,7 +43,7 @@ public class ArmPivotButtonPIDCmd extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)) > 0.05) {
+    if ((Math.abs(setpoint - armPivotSubsystem.getEncoderMeters())) < 0.1) {
       return true;
     } else {
       return false;
