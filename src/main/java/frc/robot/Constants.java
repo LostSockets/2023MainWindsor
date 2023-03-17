@@ -96,18 +96,13 @@ public final class Constants {
 
     public static final int kArmTelescopicExtend = 6;
     public static final int kArmTelescopicRetract = 5;
-    //public static final int kArmPivotManualRaise = 4;
-    //public static final int kArmPivotManualLower = 3;
+
     public static final int kArmPivotPIDPos0Button = 1;
     public static final int kArmPivotPIDPos1Button = 2;
     public static final int kArmPivotPIDPos2Button = 3;
     public static final int kArmPivotPIDPos3Button = 4;
-    //public static final int kArmPivotPIDButtonRaise = 6;
-    //public static final int kArmPivotPIDButtonLower = 5;
-    public static final int kArmPivotAxis = 5;
 
-    public static final int kGripperOpen = 2;
-    public static final int kGripperClose = 3;
+    public static final int kArmPivotAxis = 1;
 
   }
  
