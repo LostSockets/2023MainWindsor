@@ -11,11 +11,13 @@ public class AutoPivot extends CommandBase {
   private final ArmPivotSubsystem armPivotSubsystem;
   private final PIDController pidController;
   private final Joystick joyArm = new Joystick(Constants.OIConstants.kArmJoystickPort);
+  private final double setpoint;
 
   public AutoPivot(ArmPivotSubsystem armPivotSubsystem, double setpoint) {
     this.armPivotSubsystem = armPivotSubsystem;
     this.pidController = new PIDController(Constants.ArmPivotConstants.kPButton,Constants.ArmPivotConstants.kIButton,Constants.ArmPivotConstants.kDButton);
     pidController.setSetpoint(setpoint);
+    this.setpoint = setpoint;
     addRequirements(armPivotSubsystem);
 }
 
@@ -44,7 +46,7 @@ public class AutoPivot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)) > 0.05) {
+    if ((Math.abs(setpoint - armPivotSubsystem.getEncoderMeters())) < 0.1) {
       System.out.println("AutoPivot complete");
       return true;
     } else {
