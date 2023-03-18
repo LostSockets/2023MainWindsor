@@ -47,9 +47,11 @@ public class AutoDriveFwdCmd extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (driveSubsystem.getEncoderMeters() > Math.abs(encoderSetpoint - 0.1))
+    if (driveSubsystem.getEncoderMeters() > Math.abs(encoderSetpoint - 0.1)) {
+      System.out.println("AutoDriveFwdCmd complete");
       return true;
-    else 
+    } else {
       return false;
+    }
   }
 }

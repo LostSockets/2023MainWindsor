@@ -20,6 +20,8 @@ public class AutoDriveBkwdCmd extends CommandBase {
   @Override
   public void initialize() {
     encoderSetpoint = driveSubsystem.getEncoderMeters() + distance;
+    System.out.println("AutoDriveBkwdCmd started");
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -37,9 +39,11 @@ public class AutoDriveBkwdCmd extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (driveSubsystem.getEncoderMeters() < encoderSetpoint)
+    if (driveSubsystem.getEncoderMeters() < encoderSetpoint) {
+      System.out.println("AutoDriveBkwdCmd started");
       return true;
-    else 
+    } else {
       return false;
+    }
   }
 }

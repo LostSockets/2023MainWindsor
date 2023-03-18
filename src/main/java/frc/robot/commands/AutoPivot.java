@@ -25,6 +25,7 @@ public class AutoPivot extends CommandBase {
   @Override
   public void initialize() {
     pidController.reset();
+    System.out.println("AutoPivot started");
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -23,7 +23,7 @@ public class AutoTelescopicExtend extends CommandBase {
   public void initialize() {
     lastTimeStamp = Timer.getFPGATimestamp();
     startTime = Timer.getFPGATimestamp();
-
+    System.out.println("AutoTelescopicExtend started");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -44,9 +44,11 @@ public class AutoTelescopicExtend extends CommandBase {
   @Override
   public boolean isFinished() {
 
-    if (Timer.getFPGATimestamp() - startTime > Constants.AutoConstants.kTelescopicTime)
+    if (Timer.getFPGATimestamp() - startTime > Constants.AutoConstants.kTelescopicTime) {
+      System.out.println("AutoTelescopicExtend ended");
       return true;
-    else 
+    } else {
       return false;
+    }
   }
 }
