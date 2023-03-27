@@ -31,10 +31,6 @@ public final class Constants {
     public static final double kI = 0;
     public static final double kD = 0;
 
-    public static final double kPHoldInPlace = 0.3;
-    public static final double kIHoldInPlace = 0.0;
-    public static final double kDHoldInPlace = 0.0;
-
     public static final double speedThrottle = 0.4;
     public static final double turnThrottle = 0.25;
     public static final double speedTurbo = 1.0;
@@ -72,7 +68,7 @@ public final class Constants {
     public static final int kArmPivotMotorPort1 = 5;
     public static final int kArmPivotMotorPort2 = 6;
 
-    public static final double kArmPivotSpeedPercentage = 0.5;
+    public static final double kArmPivotSpeedPercentage = 0.7;
     public static final double kArmPivotSpeedPercentageThrottled = 0.15;
  
     public static final double kP = 0.1; //0.08; // PID numbers need to be figured out still!!!!!!!!
@@ -87,9 +83,9 @@ public final class Constants {
     public static final double kmaxArmPivotEncoderHeight = -24.0;
     public static final double kminArmPivotEncoderHeight = 0.0;
     public static final double kArmPivotPos0 = 0.0;
-    public static final double kArmPivotPos1 = -8.0;
-    public static final double kArmPivotPos2 = -10.2;
-    public static final double kArmPivotPos3 = -22.0;
+    public static final double kArmPivotPos1 = -6.75;
+    public static final double kArmPivotPos2 = -9.0;
+    public static final double kArmPivotPos3 = -20.0;
 
   }
 
