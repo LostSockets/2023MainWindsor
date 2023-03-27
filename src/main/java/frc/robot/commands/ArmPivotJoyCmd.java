@@ -30,8 +30,8 @@ public class ArmPivotJoyCmd extends CommandBase {
   @Override
   public void execute() {
 
-    realTimeSpeed = speedFunction.get() * Constants.ArmPivotConstants.kArmPivotSpeedPercentageThrottled;
-    armPivotSubsystem.setMotor(realTimeSpeed);
+    realTimeSpeed = speedFunction.get() * Constants.ArmPivotConstants.kArmPivotSpeedPercentage;
+    armPivotSubsystem.setMotor(-realTimeSpeed);
     
     System.out.println("speed = " + realTimeSpeed);
     System.out.println("encoder = " + armPivotSubsystem.getEncoderMeters());

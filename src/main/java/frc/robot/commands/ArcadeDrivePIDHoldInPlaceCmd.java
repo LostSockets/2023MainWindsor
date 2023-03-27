@@ -27,9 +27,9 @@ public class ArcadeDrivePIDHoldInPlaceCmd extends CommandBase {
   public void execute() {
 
     double error = encoderSetpoint - driveSubsystem.getEncoderMeters();
-    double outputSpeed = Constants.DriveConstants.kP * error;
+    double outputSpeed = Constants.DriveConstants.kPHoldInPlace * error;
 
-    driveSubsystem.setMotors(outputSpeed, outputSpeed);
+    driveSubsystem.setMotors(-outputSpeed, -outputSpeed);
   }
 
   // Called once the command ends or is interrupted.
