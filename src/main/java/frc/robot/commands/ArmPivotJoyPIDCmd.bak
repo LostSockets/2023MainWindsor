@@ -1,3 +1,12 @@
+
+
+
+//NOTE: THIS USES PID USING THE JOYSTICK FOR DIFFERENT HEIGHTS - KIND OF WORKS, BUT NOT GREAT
+
+
+
+
+
 package frc.robot.commands;
 
 import java.util.function.Supplier;
@@ -30,14 +39,17 @@ public class ArmPivotJoyPIDCmd extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
- 
-    setpoint = (3 + (-1*(heightFunction.get()) * 4));
 
+    if (heightFunction.get() > 0.05) {
+      setpoint = (-24 * (heightFunction.get()));
+      //setpoint = (3 + (-1*(heightFunction.get()) * 4));
+    } 
     pidController.setSetpoint(setpoint);
+
 
     double speed = (pidController.calculate(armPivotSubsystem.getEncoderMeters()));
     armPivotSubsystem.setMotor(speed);
-    System.out.println("ArmPivotJoyPIDCmd started");
+    
     System.out.println("speed = " + speed);
     System.out.println("encoder = " + armPivotSubsystem.getEncoderMeters());
     System.out.println("setpoint = " + setpoint);

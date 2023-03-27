@@ -11,17 +11,19 @@ package frc.robot;
 
 //Commands
 import frc.robot.commands.ArcadeDriveCmd;
+import frc.robot.commands.ArcadeDrivePIDHoldInPlaceCmd;
 import frc.robot.commands.ArmPivotButtonPIDCmd;
-import frc.robot.commands.ArmTelescopicCmd;
-import frc.robot.commands.AutoTelescopicExtend;
-import frc.robot.commands.ArmPivotJoyPIDCmd;
-import frc.robot.commands.AutoDriveBkwdCmd;
-import frc.robot.commands.AutoDriveFwdCmd;
-import frc.robot.commands.AutoPivot;
+import frc.robot.commands.ArmPivotJoyCmd;
+//import frc.robot.commands.ArmPivotButtonCmd;
+
+//import frc.robot.commands.ArmPivotJoyPIDCmd;
+//import frc.robot.commands.AutoDriveBkwdCmd;
+//import frc.robot.commands.AutoDriveFwdCmd;
+//import frc.robot.commands.AutoPivot;
 
 //Subsystems
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.ArmTelescopicSubsystem;
+//import frc.robot.subsystems.ArmTelescopicSubsystem;
 import frc.robot.subsystems.ArmPivotSubsystem;
 
 
@@ -41,7 +43,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
-  private final ArmTelescopicSubsystem armTelescopicSubsystem = new ArmTelescopicSubsystem();
+  //private final ArmTelescopicSubsystem armTelescopicSubsystem = new ArmTelescopicSubsystem();
   private final ArmPivotSubsystem armPivotSubsystem = new ArmPivotSubsystem();
 
   private final Joystick joyDrive = new Joystick(Constants.OIConstants.kDriverJoystickPort);
@@ -52,28 +54,30 @@ public class RobotContainer {
 
     //Default commands
     driveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () -> -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveSpeedAxis), () -> joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveTurnAxis)));
-    armTelescopicSubsystem.setDefaultCommand(new ArmTelescopicCmd(armTelescopicSubsystem, 0));
     configureBindings();
+    //armPivotSubsystem.setDefaultCommand(new ArmPivotCmd(armPivotSubsystem, () -> -joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
+    //armPivotSubsystem.setDefaultCommand(new ArmPivotCmd(armPivotSubsystem, 0));
   }
 
   private void configureBindings() {
-    new JoystickButton(joyArm, Constants.OIConstants.kArmTelescopicExtend).whileTrue(new ArmTelescopicCmd(armTelescopicSubsystem, Constants.ArmTelescopicConstants.kArmTelescopicSpeedPercentage));
-    new JoystickButton(joyArm, Constants.OIConstants.kArmTelescopicRetract).whileTrue(new ArmTelescopicCmd(armTelescopicSubsystem, -Constants.ArmTelescopicConstants.kArmTelescopicSpeedPercentage)); 
     new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos0Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos0));
     new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos1Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos1));
     new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos2Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2));
     new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos3Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos3));
-    armPivotSubsystem.setDefaultCommand(new ArmPivotJoyPIDCmd(armPivotSubsystem, () -> -joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
+    armPivotSubsystem.setDefaultCommand(new ArmPivotJoyCmd(armPivotSubsystem, () -> -joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
+    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotDown).whileTrue(new ArmPivotButtonCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotSpeedPercentageThrottled));
+    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotUp).whileTrue(new ArmPivotButtonCmd(armPivotSubsystem, -1*Constants.ArmPivotConstants.kArmPivotSpeedPercentageThrottled));
+    new JoystickButton(joyDrive, Constants.OIConstants.kArcadeDriveHoldInPlace).whileTrue((new ArcadeDrivePIDHoldInPlaceCmd(driveSubsystem)));
   }
 
   public Command getAutonomousCommand() {
 
     return new SequentialCommandGroup(
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
-      new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2),
-      new AutoTelescopicExtend(armTelescopicSubsystem, 1),
-      new AutoTelescopicExtend(armTelescopicSubsystem, -1),
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)      
+      //new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
+      //new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2),
+      //new AutoTelescopicExtend(armTelescopicSubsystem, 1),
+      //new AutoTelescopicExtend(armTelescopicSubsystem, -1),
+      //new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)      
 
 
     /* Autonomous 2: bump cube back, drive forward 

@@ -65,10 +65,11 @@ public final class Constants {
 
   public static final class ArmPivotConstants {
 
-    public static final int kArmPivotMotorPort = 8;
+    public static final int kArmPivotMotorPort1 = 5;
+    public static final int kArmPivotMotorPort2 = 6;
 
     public static final double kArmPivotSpeedPercentage = 0.7;
-    public static final double kArmPivotSpeedPecentageThrottled = 0.15;
+    public static final double kArmPivotSpeedPercentageThrottled = 0.15;
  
     public static final double kP = 0.1; //0.08; // PID numbers need to be figured out still!!!!!!!!
     public static final double kI = 0;
@@ -78,13 +79,13 @@ public final class Constants {
     public static final double kIButton = 0;
     public static final double kDButton = 0;
   
-    //NOTE: Values below are for start position UP. Commented out values are for when start position is DOWN.
-    public static final double kmaxArmPivotEncoderHeight = -1.0; //-8.7;
-    public static final double kminArmPivotEncoderHeight = 7.5; //-0.1;
-    public static final double kArmPivotPos0 = 7.0; //-0.4;
-    public static final double kArmPivotPos1 = 5.0; //-3.0;
-    public static final double kArmPivotPos2 = 1.0; //-6.0;
-    public static final double kArmPivotPos3 = -1.0; //-8.5;
+    //NOTE: Values below are for start position DOWN.
+    public static final double kmaxArmPivotEncoderHeight = -24.0;
+    public static final double kminArmPivotEncoderHeight = 0.0;
+    public static final double kArmPivotPos0 = 0.0;
+    public static final double kArmPivotPos1 = -6.75;
+    public static final double kArmPivotPos2 = -9.0;
+    public static final double kArmPivotPos3 = -20.0;
 
   }
 
@@ -94,13 +95,17 @@ public final class Constants {
     public static final int kArmJoystickPort = 1;
 
     public static final int kArcadeDriveSpeedAxis = 1;
-    public static final int kArcadeDriveTurnAxis = 4;
+    public static final int kArcadeDriveTurnAxis = 3;
+    public static final int kArcadeDriveHoldInPlace = 1;
     public static final int kArcadeDriveReverse = 3;
     public static final int kArcadeDriveTurbo = 6;
     public static final int kArcadeDriveMellow = 5;
 
     public static final int kArmTelescopicExtend = 6;
     public static final int kArmTelescopicRetract = 5;
+
+    //public static final int kArmPivotDown = 1;
+    //public static final int kArmPivotUp = 2;
 
     public static final int kArmPivotPIDPos0Button = 1;
     public static final int kArmPivotPIDPos1Button = 2;

@@ -60,20 +60,20 @@ public class ArcadeDriveCmd extends CommandBase {
 
     if (joyDrive.getRawAxis(2) > 0.5) {
       if (realTimeSpeed <= -0.01) {
-        left = realTimeSpeed + realTimeTurn;
-        right = realTimeSpeed - realTimeTurn;
-      } else {
         left = realTimeSpeed - realTimeTurn;
         right = realTimeSpeed + realTimeTurn;
+      } else {
+        left = realTimeSpeed + realTimeTurn;
+        right = realTimeSpeed - realTimeTurn;
       }
       driveSubsystem.setMotors(-left, -right);
     } else {
       if (realTimeSpeed <= -0.01) {
-        left = realTimeSpeed - realTimeTurn;
-        right = realTimeSpeed + realTimeTurn;
-      } else {
         left = realTimeSpeed + realTimeTurn;
         right = realTimeSpeed - realTimeTurn;
+      } else {
+        left = realTimeSpeed - realTimeTurn;
+        right = realTimeSpeed + realTimeTurn;
       }
       driveSubsystem.setMotors(left, right);
     }

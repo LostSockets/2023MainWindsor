@@ -18,8 +18,10 @@ import frc.robot.Constants;
 
 public class ArmPivotSubsystem extends SubsystemBase {
 
-    private final CANSparkMax armPivotMotor = new CANSparkMax(Constants.ArmPivotConstants.kArmPivotMotorPort, MotorType.kBrushless);
-    private final RelativeEncoder armPivotEncoder = armPivotMotor.getEncoder();
+    private final CANSparkMax armPivotMotorLead = new CANSparkMax(Constants.ArmPivotConstants.kArmPivotMotorPort2, MotorType.kBrushless);
+    private final CANSparkMax armPivotMotorFollow = new CANSparkMax(Constants.ArmPivotConstants.kArmPivotMotorPort1, MotorType.kBrushed);
+    private final RelativeEncoder armPivotEncoder = armPivotMotorLead.getEncoder();
+
 
     public double getEncoderMeters() {
         return (((RelativeEncoder) armPivotEncoder).getPosition());
@@ -34,9 +36,9 @@ public class ArmPivotSubsystem extends SubsystemBase {
     }
 
     public void setMotor(double speed) {
+        armPivotMotorFollow.follow(armPivotMotorLead);
         SmartDashboard.putNumber("pivot speed", speed);
-        SmartDashboard.putNumber("pivot speed * throttle", speed*Constants.ArmPivotConstants.kArmPivotSpeedPercentage);
-        armPivotMotor.set(speed*Constants.ArmPivotConstants.kArmPivotSpeedPercentage);
+        armPivotMotorLead.set(speed);
     }
 
 }
