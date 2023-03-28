@@ -77,8 +77,9 @@ public class RobotContainer {
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
       new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
       new ParallelCommandGroup ( //
-        new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3) //
-    )
+        new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new SequentialCommandGroup( //
+          new AutoDelay(1), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3)) //
+      )
     
 
     /* Autonomous 1b: Raise to top position without using ParallelCommandGroup

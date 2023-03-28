@@ -58,7 +58,7 @@ public final class Constants {
 
     public static final double kAutoPivotHeight1 = -10.5;
     public static final double kAutoPivotHeight2 = -9.5;
-    public static final double kAutoPivotHeight3 = 0.0;
+    public static final double kAutoPivotHeight3 = -22.0;
 
   }
 
