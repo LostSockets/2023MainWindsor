@@ -49,22 +49,16 @@ public final class Constants {
 
     public static final double kAutoDriveFwdSpeed = 1.5;
     public static final double kAutoDriveFwdDistance = 1.0;
-    public static final double kAutoDriveFwdDistance2 = 4.0;
+    public static final double kAutoDriveBkwdSpeed = -0.8;
+    public static final double kAutoDriveBkwdDistance = -15.0;
 
     public static final double kAuto2DriveFwdDistance = 12.0;
     public static final double kAuto2DriveBkwdDistance = 1.2;
 
-    public static final double kAutoDriveBkwdSpeed = -0.8;
-    public static final double kAutoDriveBkwdDistance = -15.0;
+    public static final double kAutoPivotHeight1 = -10.5;
+    public static final double kAutoPivotHeight2 = -9.5;
+    public static final double kAutoPivotHeight3 = 0.0;
 
-    public static final double kTelescopicTime = 2.0;
-  }
-
-  public static final class ArmTelescopicConstants {
-
-    public static final int kArmTelescopicMotorPort = 6;
-
-    public static final double kArmTelescopicSpeedPercentage = 0.7;   
   }
 
   public static final class ArmPivotConstants {
@@ -86,10 +80,10 @@ public final class Constants {
     //NOTE: Values below are for start position DOWN.
     public static final double kmaxArmPivotEncoderHeight = -24.0;
     public static final double kminArmPivotEncoderHeight = 0.0;
-    public static final double kArmPivotPos0 = 0.0;
-    public static final double kArmPivotPos1 = -8.0;
-    public static final double kArmPivotPos2 = -10.2;
-    public static final double kArmPivotPos3 = -22.0;
+    public static final double kArmPivotPos0 = 0.0; //A
+    public static final double kArmPivotPos1 = -8.0; //B
+    public static final double kArmPivotPos2 = -22.0; //Y
+    public static final double kArmPivotPos3 = -10.2; //X
 
   }
 

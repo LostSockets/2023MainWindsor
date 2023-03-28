@@ -14,7 +14,10 @@ import frc.robot.commands.ArcadeDriveCmd;
 import frc.robot.commands.ArcadeDrivePIDHoldInPlaceCmd;
 import frc.robot.commands.ArmPivotButtonPIDCmd;
 import frc.robot.commands.ArmPivotJoyCmd;
+import frc.robot.commands.AutoDriveBkwdCmd;
+import frc.robot.commands.AutoDriveFwdCmd;
 //import frc.robot.commands.ArmPivotButtonCmd;
+import frc.robot.commands.AutoPivot;
 
 //import frc.robot.commands.ArmPivotJoyPIDCmd;
 //import frc.robot.commands.AutoDriveBkwdCmd;
@@ -30,6 +33,7 @@ import frc.robot.subsystems.ArmPivotSubsystem;
 //Libraries
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 //import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -72,18 +76,31 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
 
+    /* Autonomous 1: Raise to top position */
     return new SequentialCommandGroup(
-      //new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
-      //new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2),
-      //new AutoTelescopicExtend(armTelescopicSubsystem, 1),
-      //new AutoTelescopicExtend(armTelescopicSubsystem, -1),
-      //new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)      
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
+      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
+      new ParallelCommandGroup ( //
+        new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3) //
+    )
 
+    /* Autonomous 2: Raise to top position without ParallelCommandGroup
+    return new SequentialCommandGroup(
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
+      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
+      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), 
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3) //
+    )
+    */
 
-    /* Autonomous 2: bump cube back, drive forward 
+    /* Autonomous 3: bump cube back, drive forward 
+    return new SequentialCommandGroup(
       new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveBkwdDistance),
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveFwdDistance)
-     */
+    )
+      */
 
     /*  Use this later!
     new ParallelCommandGroup ( //
