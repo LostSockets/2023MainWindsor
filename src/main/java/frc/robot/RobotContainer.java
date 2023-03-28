@@ -97,16 +97,10 @@ public class RobotContainer {
 
     /* Autonomous 3: bump cube back, drive forward 
     return new SequentialCommandGroup(
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveBkwdDistance),
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveFwdDistance)
+      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAuto3DriveBkwdDistance),
+      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAuto3DriveFwdDistance)
     )
       */
-
-    /*  Use this later!
-    new ParallelCommandGroup ( //
-        new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance), new AutoPivot(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2) //
-    )
-    */
 
     );//
   }
