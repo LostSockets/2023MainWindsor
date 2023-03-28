@@ -47,13 +47,13 @@ public final class Constants {
 
   public static final class AutoConstants {
 
-    public static final double kAutoDriveFwdSpeed = 1.5;
+    public static final double kAutoDriveFwdSpeed = 0.3; //1.5;
     public static final double kAutoDriveFwdDistance = 1.0;
     public static final double kAutoDriveBkwdSpeed = -0.8;
     public static final double kAutoDriveBkwdDistance = -15.0;
 
-    public static final double kAuto3DriveFwdDistance = 12.0;
-    public static final double kAuto3DriveBkwdDistance = -1.2;
+    public static final double kAuto2DriveFwdDistance = 12.0;
+    public static final double kAuto2DriveBkwdDistance = -1.2;
 
     public static final double kAutoPivotHeight1 = -10.5;
     public static final double kAutoPivotHeight2 = -9.5;
