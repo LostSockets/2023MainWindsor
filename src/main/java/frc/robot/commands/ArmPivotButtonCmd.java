@@ -22,7 +22,7 @@ public class ArmPivotButtonCmd extends CommandBase {
   @Override
   public void execute() {
     armPivotSubsystem.setMotor(speed);
-    System.out.println("speed" + speed);
+    //System.out.println("speed" + speed);
   }
 
   // Called once the command ends or is interrupted.

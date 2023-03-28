@@ -19,7 +19,7 @@ public class AutoDriveFwdCmd extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    encoderSetpoint = driveSubsystem.getEncoderMeters() + distance;
+    encoderSetpoint = -1 * (driveSubsystem.getEncoderMeters() + distance);
     System.out.print("AutoDriveFwd started");
   }
 
@@ -28,14 +28,14 @@ public class AutoDriveFwdCmd extends CommandBase {
   public void execute() {
 
     double error = encoderSetpoint - driveSubsystem.getEncoderMeters();
-    double outputSpeed = Constants.DriveConstants.kP * error * Constants.AutoConstants.kAutoDriveFwdSpeed;
+    double outputSpeed = Constants.DriveConstants.kP * error;
 
     driveSubsystem.setMotors(outputSpeed, outputSpeed);
 
-    System.out.print("error = ");
-    System.out.println(error);
-    System.out.print("outputSpeed = ");
-    System.out.println(outputSpeed);
+    //System.out.print("error = ");
+    //System.out.println(error);
+    //System.out.print("outputSpeed = ");
+    //System.out.println(outputSpeed);
   }
 
   // Called once the command ends or is interrupted.

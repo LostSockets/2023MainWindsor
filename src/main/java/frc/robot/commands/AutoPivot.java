@@ -47,7 +47,7 @@ public class AutoPivot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if ((Math.abs(setpoint - armPivotSubsystem.getEncoderMeters())) < 0.1) {
+    if ((Math.abs(setpoint - armPivotSubsystem.getEncoderMeters())) < 0.4) {
       System.out.println("AutoPivot complete");
       return true;
     } else {

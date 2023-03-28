@@ -14,19 +14,15 @@ import frc.robot.commands.ArcadeDriveCmd;
 import frc.robot.commands.ArcadeDrivePIDHoldInPlaceCmd;
 import frc.robot.commands.ArmPivotButtonPIDCmd;
 import frc.robot.commands.ArmPivotJoyCmd;
+import frc.robot.commands.AutoDelay;
 import frc.robot.commands.AutoDriveBkwdCmd;
 import frc.robot.commands.AutoDriveFwdCmd;
 //import frc.robot.commands.ArmPivotButtonCmd;
 import frc.robot.commands.AutoPivot;
 
-//import frc.robot.commands.ArmPivotJoyPIDCmd;
-//import frc.robot.commands.AutoDriveBkwdCmd;
-//import frc.robot.commands.AutoDriveFwdCmd;
-//import frc.robot.commands.AutoPivot;
 
 //Subsystems
 import frc.robot.subsystems.DriveSubsystem;
-//import frc.robot.subsystems.ArmTelescopicSubsystem;
 import frc.robot.subsystems.ArmPivotSubsystem;
 
 
@@ -34,7 +30,6 @@ import frc.robot.subsystems.ArmPivotSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-//import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -76,7 +71,7 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
 
-    /* Autonomous 1a: Raise to top position using ParallelCommandGroup 
+    //Autonomous 1a: Raise to top position using ParallelCommandGroup 
     return new SequentialCommandGroup(
       new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
@@ -84,7 +79,7 @@ public class RobotContainer {
       new ParallelCommandGroup ( //
         new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3) //
     )
-    */
+    
 
     /* Autonomous 1b: Raise to top position without using ParallelCommandGroup
     return new SequentialCommandGroup(
@@ -103,10 +98,13 @@ public class RobotContainer {
     )
       */
 
-    //  Autonomous 3:  TESTING
+    /*  Autonomous 3:  TESTING
 
     return new SequentialCommandGroup(
-      new AutoDriveFwdCmd(driveSubsystem, 1)
+      new AutoDriveFwdCmd(driveSubsystem, 2),
+      new AutoDelay(2),
+      new AutoDriveBkwdCmd(driveSubsystem, 2)
+    */
     );//
   }
 }

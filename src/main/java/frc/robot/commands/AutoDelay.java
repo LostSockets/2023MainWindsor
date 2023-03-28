@@ -17,13 +17,22 @@ private double startTime = 0;
   public void initialize() {
     Timer timer = new Timer();
     startTime = Timer.getFPGATimestamp();
+    System.out.println("AutoDelay started");
+    System.out.print("startTime");
+    System.out.println(startTime);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    while (Timer.getFPGATimestamp() - startTime > timeDelay){
+    System.out.print("Current time = ");
+    System.out.println(Timer.getFPGATimestamp());
+    System.out.print("Time remaining = ");
+    System.out.println(Timer.getFPGATimestamp() - startTime);    
+    while (Timer.getFPGATimestamp() - startTime < timeDelay){
       // This is just a delay timer!
+      System.out.print("Time remaining = ");
+      System.out.println(Timer.getFPGATimestamp() - startTime);
     }
   }
 
@@ -35,6 +44,7 @@ private double startTime = 0;
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("AutoDelay ended");
     return true;
  }
 }
