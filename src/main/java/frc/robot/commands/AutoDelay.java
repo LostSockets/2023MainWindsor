@@ -15,7 +15,7 @@ private double startTime = 0;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Timer timer = new Timer();
+    //Timer timer = new Timer();
     startTime = Timer.getFPGATimestamp();
     System.out.println("AutoDelay started");
     System.out.print("startTime");
