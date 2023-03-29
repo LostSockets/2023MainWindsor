@@ -51,7 +51,7 @@ public final class Constants {
     public static final double kAutoDriveFwdSpeed = 1.5;
     public static final double kAutoDriveFwdDistance = 1.0;
     public static final double kAutoDriveBkwdSpeed = -0.8;
-    public static final double kAutoDriveBkwdDistance = -15.0;
+    public static final double kAutoDriveBkwdDistance = -5.0; //CHANGE TO -15.0 FOR COMP!!!!
 
     public static final double kAuto2DriveFwdDistance = 12.0;
     public static final double kAuto2DriveBkwdDistance = -1.2;
