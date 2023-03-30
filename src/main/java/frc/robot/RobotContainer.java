@@ -71,6 +71,7 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
 
+    /*
     //Autonomous 1a: Raise to top position using ParallelCommandGroup 
     return new SequentialCommandGroup(
       new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
@@ -80,7 +81,7 @@ public class RobotContainer {
         new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new SequentialCommandGroup( //
           new AutoDelay(1), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3)) //
       )
-    
+    */
 
     /* Autonomous 1b: Raise to top position without using ParallelCommandGroup
     return new SequentialCommandGroup(
@@ -99,13 +100,28 @@ public class RobotContainer {
     )
       */
 
-    /*  Autonomous 3:  TESTING
-
+    /* Autonomous 3: starting arm position resting on back */
     return new SequentialCommandGroup(
-      new AutoDriveFwdCmd(driveSubsystem, 2),
+      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
+      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)
+      
+
+    
+    /*
+    //  Autonomous X:  TESTING
+
+    return 
+    new SequentialCommandGroup(
+      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
+      new ParallelCommandGroup(
+        new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
+        new AutoDriveFwdCmd(driveSubsystem, 10)
+      ),
       new AutoDelay(2),
       new AutoDriveBkwdCmd(driveSubsystem, 2)
     */
+
     );//
   }
 }

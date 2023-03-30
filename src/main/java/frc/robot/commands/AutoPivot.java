@@ -33,9 +33,9 @@ public class AutoPivot extends CommandBase {
   public void execute() {
     double speed = pidController.calculate(armPivotSubsystem.getEncoderMeters());
     armPivotSubsystem.setMotor(speed);
-    System.out.println("Arm position = " + armPivotSubsystem.getEncoderMeters() );
-    System.out.println("Arm speed = " + speed );
-    System.out.println("joyArm.getRawAxis = " + Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
+    //System.out.println("Arm position = " + armPivotSubsystem.getEncoderMeters() );
+    //System.out.println("Arm speed = " + speed );
+    //System.out.println("joyArm.getRawAxis = " + Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
   }
 
   // Called once the command ends or is interrupted.

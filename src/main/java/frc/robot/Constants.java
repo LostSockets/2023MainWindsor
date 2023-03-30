@@ -27,7 +27,7 @@ public final class Constants {
     public static final double kEncoderTick2Feet = 0.188679; // = 1/5.3? why? gear ratio?
     //public static final double kEncoderTick2Feet = ((1.0 / 4096.0) * 2 * Math.PI * 0.5);
     //public static final double kEncoderTick2Meter = 1.0 / 4096.0 * 0.128 * Math.PI;
-    public static final double kP = 0.1; 
+    public static final double kP = 0.15; 
     public static final double kI = 0;
     public static final double kD = 0;
 
@@ -51,14 +51,14 @@ public final class Constants {
     public static final double kAutoDriveFwdSpeed = 1.5;
     public static final double kAutoDriveFwdDistance = 1.0;
     public static final double kAutoDriveBkwdSpeed = -0.8;
-    public static final double kAutoDriveBkwdDistance = -5.0; //CHANGE TO -15.0 FOR COMP!!!!
+    public static final double kAutoDriveBkwdDistance = -15.0; //CHANGE TO -15.0 FOR COMP!!!!
 
     public static final double kAuto2DriveFwdDistance = 12.0;
     public static final double kAuto2DriveBkwdDistance = -1.2;
 
     public static final double kAutoPivotHeight1 = -10.5;
     public static final double kAutoPivotHeight2 = -9.5;
-    public static final double kAutoPivotHeight3 = -22.0;
+    public static final double kAutoPivotHeight3 = -12.0;
 
   }
 
@@ -83,8 +83,8 @@ public final class Constants {
     public static final double kminArmPivotEncoderHeight = 0.0;
     public static final double kArmPivotPos0 = 0.0; //A
     public static final double kArmPivotPos1 = -8.0; //B
-    public static final double kArmPivotPos2 = -22.0; //Y
-    public static final double kArmPivotPos3 = -10.2; //X
+    public static final double kArmPivotPos2 = -22.0; //X
+    public static final double kArmPivotPos3 = -10.2; //Y
 
   }
 
